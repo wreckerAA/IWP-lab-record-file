@@ -1,0 +1,116 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin: 20px;
+    text-align: center;
+}
+
+/* The main container for the periodic table grid */
+#periodic-table {
+    display: grid;
+    /* The periodic table has 18 columns and 10 rows (including lanthanides/actinides) */
+    grid-template-columns: repeat(18, minmax(60px, 1fr));
+    grid-template-rows: repeat(10, minmax(60px, 1fr));
+    gap: 5px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Add a gap between the main table and the lanthanide/actinide series */
+    grid-row-gap: 10px;
+}
+
+/* Base style for each element tile */
+.element {
+    border: 1px solid #555;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    background-color: #ddd; /* Default background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+/* Hover effect to make elements pop */
+.element:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Ensures the hovered element is on top */
+}
+
+/* Style for the currently selected element */
+.element.selected {
+    border: 2px solid #0056b3;
+    transform: scale(1.05); /* Slightly larger than normal */
+}
+
+
+/* Styling for the text inside each element tile */
+.element .atomic-number {
+    font-size: 0.7em;
+    align-self: flex-start;
+}
+
+.element .symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.element .name {
+    font-size: 0.7em;
+    word-break: break-word;
+}
+
+/* --- Color Coding by Category --- */
+.alkali-metal { background-color: #ffadad; border-color: #e69c9c; }
+.alkaline-earth-metal { background-color: #ffd6a5; border-color: #e6c194; }
+.transition-metal { background-color: #fdffb6; border-color: #e4e6a4; }
+.lanthanide { background-color: #d8f8e1; border-color: #c3e0ca; }
+.actinide { background-color: #f6e6f6; border-color: #decde2; }
+.post-transition-metal { background-color: #ffc6ff; border-color: #e6b2e6; }
+.metalloid { background-color: #bdb2ff; border-color: #a097d9; }
+.polyatomic-nonmetal { background-color: #a0c4ff; border-color: #90b0e6; }
+.diatomic-nonmetal { background-color: #9bf6ff; border-color: #8adce6; }
+.halogen { background-color: #9effd1; border-color: #8fe6bc; }
+.noble-gas { background-color: #caffbf; border-color: #b5e6ac; }
+.unknown { background-color: #e8e8e8; border-color: #d1d1d1; }
+
+
+/* Styling for the details panel */
+#element-details {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 600px;
+    min-height: 150px;
+    transition: all 0.3s ease;
+}
+
+#element-details h2 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+#element-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#element-details li {
+    padding: 5px 0;
+}
